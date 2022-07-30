@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+        - name: auth
+          image: ramigordon/auth
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+spec:
+  selector:
+    # is going to try to find a pod with name auth
+    app: auth
+  # Default type is ClusterIP
+  type: ClusterIP
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
