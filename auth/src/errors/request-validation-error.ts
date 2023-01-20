@@ -4,7 +4,7 @@ export class RequestValidationError extends Error {
   constructor(public errors: ValidationError[]) {
     super();
 
-    // Only because we are extending a built in class
+    // Only because we are extending a built in class (typescript requirement)
     Object.setPrototypeOf(this, RequestValidationError.prototype);
   }
 }
