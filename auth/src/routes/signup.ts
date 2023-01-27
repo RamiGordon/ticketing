@@ -39,7 +39,7 @@ router.post(
         id: user.id,
         email: user.email,
       },
-      process.env.JWC_KEY!
+      process.env.JWT_KEY!
     );
 
     // store the token in cookie session
