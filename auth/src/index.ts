@@ -39,6 +39,10 @@ const start = async () => {
   const authPodName = "auth-mongo-srv";
   const authPodPort = "27017";
 
+  if (!process.env.JWT_KEY) {
+    throw new Error("JWT_KEY must be defined");
+  }
+
   try {
     await mongoose.connect(`mongodb://${authPodName}:${authPodPort}/auth,`);
 

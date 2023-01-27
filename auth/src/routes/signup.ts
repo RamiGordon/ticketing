@@ -39,7 +39,7 @@ router.post(
         id: user.id,
         email: user.email,
       },
-      "asdf"
+      process.env.JWC_KEY!
     );
 
     // store the token in cookie session
