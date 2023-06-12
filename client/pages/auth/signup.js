@@ -2,6 +2,7 @@ import { useState } from "react";
 import Router from "next/router";
 import useRequest from "../../hooks/useRequest";
 
+// TODO: unify signup and signin page
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
