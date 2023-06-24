@@ -1,7 +1,8 @@
+import { errorHandler, NotFountError } from "@alakator/common";
+import cookieSession from "cookie-session";
+import { json } from "body-parser";
 import express from "express";
 import "express-async-errors";
-import { json } from "body-parser";
-import cookieSession from "cookie-session";
 
 import {
   currentUserRouter,
@@ -9,8 +10,6 @@ import {
   signoutRouter,
   signupRouter,
 } from "./routes";
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFountError } from "./errors/not-found-error";
 
 const app = express();
 // we have ingress doing a proxy for us, this to tell express to trust ingress
